@@ -1,0 +1,66 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+#- story: happy name path
+#  steps:
+#  - intent: tell_name
+#  - action: utter_name
+#  - action: utter_ask_name
+#  - intent: tell_name
+#    entities:
+#    - name: "Rahul"
+#  - slot_was_set:
+#    - name: "Rahul"
+#  - action: utter_ask_number
+#  - intent: mobile_number
+#    entities:
+#    - number: "8866566541"
+#  - slot_was_set:
+#      - name: "Rahul"
+#  - action: utter_thanks
+
+- story: ask service path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_service
+  - action: utter_services
+  - intent: service_info
+  - action: utter_acknowledge
+
+#- story: ask location path
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: tell_name
+#  - action: utter_name
+#  - intent: ask_location
+#  - action: utter_location
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
